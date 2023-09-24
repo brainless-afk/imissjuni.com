@@ -31,8 +31,8 @@
 }
 
 .streamInfo {
-    background: linear-gradient(rgba(140, 247, 172, 0.3) 0%, rgb(140, 247, 172) 100%);
-    border: 1px solid rgb(117, 207, 137);
+    background: linear-gradient(#a4b785 0%, #cfd7be 100%);
+    border: 1px solid #ebebeb;
     border-radius: 6px;
     padding: 0.8rem;
     margin: 2rem auto;
@@ -44,7 +44,7 @@
 .videoBox img {
     margin-left: 0.8rem;
     border-radius: 3px;
-    border: 1px solid rgb(117, 207, 137);
+    border: 1px solid #ebebeb;
 }
 
 .videoBox a {
