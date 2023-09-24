@@ -263,12 +263,11 @@ function LiveOrStartingSoonLayout(props) {
     pageEmoji = "🕒";
   }
 
+  const title = `${pageEmoji} ${lang.Main.PageTitle}`;
   return (
     <div>
       <Head>
-        <title>
-          {pageEmoji} {lang.Main.PageTitle}
-        </title>
+        <title>{title}</title>
         <meta
           content={createEmbedDescription(lang, props.status, props.streamInfo)}
           property="og:description"

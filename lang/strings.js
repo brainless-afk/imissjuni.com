@@ -1,11 +1,10 @@
 const AllStrings = {};
 
-// To add a new language, copypaste starting from this line...
 AllStrings["en"] = {
   CommonMetadata: {
     HeaderSMTitle: "I MISS JUNI",
     FooterText:
-      "Not affiliated with Juniper Actias - Past stream data provided by Holodex - {0}",
+      "Not affiliated with Juniper Actias - {0}",
     FooterSourceLink: "Source",
     FooterStreamerLink: "Juniper Actias",
   },

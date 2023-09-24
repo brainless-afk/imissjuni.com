@@ -1,5 +1,5 @@
-import { STREAM_STATUS, STREAM_TYPE } from "../common/enums"
-import { fetchWithTimeout } from "../common/utils"
+import { STREAM_STATUS, STREAM_TYPE } from "../../common/enums"
+import { fetchWithTimeout } from "../../common/utils"
 
 async function getTweets(forUser, afterTweetID) {
     console.debug("[getTweets]", "called with args:", { forUser, afterTweetID })

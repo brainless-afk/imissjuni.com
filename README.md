@@ -3,6 +3,8 @@
 The site is configured using environment variables. Set the following in your .env file,
 or the actual environment of your server process:
 
+- `WATCH_TWITCH_CHANNEL_HANDLE=@xxxx` sets the twitch channel to check for livestream status.  
+  Also sets the channel link at the bottom of the page.
 - `WATCH_YT_CHANNEL_ID=XXXX` sets the youtube channel to check for livestream status. Copy
   only the part after /channel/ in the URL (i.e. the `UC...` part)
 - `USE_DUMMY_DATA=true` returns fake stream status instead of scraping YT. See 

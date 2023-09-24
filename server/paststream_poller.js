@@ -54,7 +54,7 @@ export async function pollPaststreamStatus(channelID) {
 }
 
 async function pollPaststreamStatusDummy(unused) {
-    const dummyData = require("./paststream_dummy_data.json")
+    const dummyData = require("./mocks/paststream_dummy_data.json")
     return {
         error: null,
         result: extractPaststreamInfo(dummyData)
