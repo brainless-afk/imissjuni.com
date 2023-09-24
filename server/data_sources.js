@@ -3,7 +3,10 @@ import {
   pollTwitchLivestreamStatus,
   pollLivestreamStatusDummy,
 } from "../server/livestream_poller";
-import { pollPaststreamStatus } from "../server/paststream_poller";
+import {
+  pollPaststreamStatus,
+  pollPaststreamStatusTwitch,
+} from "../server/paststream_poller";
 import { STREAM_STATUS, STREAM_TYPE } from "../common/enums";
 import {
   findLinksFromTwitter,
@@ -70,9 +73,15 @@ export async function getKnownStreamData(coordinator) {
 }
 
 export async function getPastStream() {
-  const pastStreamVal = await pollPaststreamStatus(
-    process.env.WATCH_YT_CHANNEL_ID
-  );
+  let pastStreamVal;
+
+  if (process.env.WATCH_TWITCH_USER_ID) {
+    pastStreamVal = await pollPaststreamStatusTwitch(
+      process.env.WATCH_TWITCH_USER_ID
+    );
+  } else {
+    pastStreamVal = await pollPaststreamStatus(process.env.WATCH_YT_CHANNEL_ID);
+  }
 
   const { error: pastStreamError, result: pastStreamResult } = pastStreamVal;
   if (pastStreamError) {
