@@ -109,13 +109,17 @@ export async function getServerSideProps({ req, res, query }) {
 
   const absolutePrefix = process.env.PUBLIC_HOST;
   const channelURLEnd =
-    process.env.WATCH_CHANNEL_HANDLE !== undefined
-      ? process.env.WATCH_CHANNEL_HANDLE
-      : `channel/${process.env.WATCH_CHANNEL_ID}`;
-  const channelLink = `https://www.youtube.com/${channelURLEnd}`;
+    process.env.WATCH_TWITCH_CHANNEL_HANDLE !== undefined
+      ? process.env.WATCH_TWITCH_CHANNEL_HANDLE
+      : process.env.WATCH_YT_CHANNEL_HANDLE !== undefined
+      ? process.env.WATCH_YT_CHANNEL_HANDLE
+      : `channel/${process.env.WATCH_YT_CHANNEL_ID}`;
 
+  const channelLink =
+    process.env.WATCH_TWITCH_CHANNEL_HANDLE !== undefined
+      ? `https://www.twitch.tv/${channelURLEnd}`
+      : `https://www.youtube.com/${channelURLEnd}`;
 
-  
   let staleOnArrival = false;
   let useStreamInfo = await ds.getKnownStreamData(coordinator);
 

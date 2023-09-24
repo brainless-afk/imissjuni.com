@@ -3,7 +3,7 @@
 The site is configured using environment variables. Set the following in your .env file,
 or the actual environment of your server process:
 
-- `WATCH_CHANNEL_ID=XXXX` sets the youtube channel to check for livestream status. Copy
+- `WATCH_YT_CHANNEL_ID=XXXX` sets the youtube channel to check for livestream status. Copy
   only the part after /channel/ in the URL (i.e. the `UC...` part)
 - `USE_DUMMY_DATA=true` returns fake stream status instead of scraping YT. See 
   getServerSideProps in pages/index.js.
@@ -16,7 +16,7 @@ or the actual environment of your server process:
 - `TWITTER_BEARER_TOKEN=XXXX` for loading tweets, which we use to discover members/premiere
   streams. Can be issued from https://developer.twitter.com/ , which is free but requires
   your account to be approved as a Twitter dev.
-- `WATCH_CHANNEL_HANDLE=@xxxx` sets the channel link at the bottom of the page. If unset,
+- `WATCH_YT_CHANNEL_HANDLE=@xxxx` sets the channel link at the bottom of the page. If unset,
   uses the old /channel/... URL format.
 
 One of the following variable sets are needed to configure the database:

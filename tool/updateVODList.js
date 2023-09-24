@@ -97,7 +97,7 @@ class SQLiteDatabase {
 
 function makeAPIURL(pageToken) {
     const apiKey = process.env.YOUTUBE_API_KEY
-    const channelID = process.env.WATCH_CHANNEL_ID
+    const channelID = process.env.WATCH_YT_CHANNEL_ID
     let pageSpecifier = "&"
     if (pageToken) {
         pageSpecifier = `pageToken=${pageToken}&`

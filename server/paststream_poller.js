@@ -39,7 +39,7 @@ function extractPaststreamInfo(fromPageContent) {
 
 export async function pollPaststreamStatus(channelID) {
     if (process.env.USE_DUMMY_DATA === "true") {
-        return pollPaststreamStatusDummy(process.env.WATCH_CHANNEL_ID)
+        return pollPaststreamStatusDummy(process.env.WATCH_YT_CHANNEL_ID)
 	}
 
     const { error, result: youtubeJSON } = await fetchPaststreamPage(channelID)

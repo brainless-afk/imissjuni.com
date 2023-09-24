@@ -24,7 +24,7 @@ export async function getServerSideProps({ req, res, query }) {
                     thumbnail: vodInfo.thumbnail
                 },
                 uploadDate: vodInfo.uploaded_date,
-                channelLink: `https://www.youtube.com/channel/${process.env.WATCH_CHANNEL_ID}`
+                channelLink: `https://www.youtube.com/channel/${process.env.WATCH_YT_CHANNEL_ID}`
             }
         }
     } else {
@@ -32,7 +32,7 @@ export async function getServerSideProps({ req, res, query }) {
         return {
             props: {
                 error: "NO_VIDEO_FOUND",
-                channelLink: `https://www.youtube.com/channel/${process.env.WATCH_CHANNEL_ID}`
+                channelLink: `https://www.youtube.com/channel/${process.env.WATCH_YT_CHANNEL_ID}`
             }
         }
     }

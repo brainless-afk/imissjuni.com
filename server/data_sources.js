@@ -18,7 +18,7 @@ async function revalidateCachedStream(coordinator, streamInfo, age) {
     }
 
     const match = /\?v=(.{11})/.exec(streamInfo.videoLink)
-    const { result, error } = await getStreamInfos([match[1]], process.env.WATCH_CHANNEL_ID)
+    const { result, error } = await getStreamInfos([match[1]], process.env.WATCH_YT_CHANNEL_ID)
     if (error) {
         return null
     }
@@ -50,7 +50,7 @@ export async function getKnownStreamData(coordinator) {
 }
 
 export async function getPastStream() {
-    const pastStreamVal = await pollPaststreamStatus(process.env.WATCH_CHANNEL_ID)
+    const pastStreamVal = await pollPaststreamStatus(process.env.WATCH_YT_CHANNEL_ID)
 
     const { error: pastStreamError, result: pastStreamResult } = pastStreamVal
     if (pastStreamError) {
@@ -65,9 +65,9 @@ export async function getPastStream() {
 export async function getLiveStreamData(mockKey) {    
     let apiVal
     if (process.env.USE_DUMMY_DATA === "true") {
-        apiVal = await pollLivestreamStatusDummy(process.env.WATCH_CHANNEL_ID, mockKey)
+        apiVal = await pollLivestreamStatusDummy(process.env.WATCH_YT_CHANNEL_ID, mockKey)
     } else {
-        apiVal = await pollLivestreamStatus(process.env.WATCH_CHANNEL_ID)
+        apiVal = await pollLivestreamStatus(process.env.WATCH_YT_CHANNEL_ID)
     }
 
     return apiVal
@@ -83,7 +83,7 @@ export async function findExtraStreams(coordinator) {
     }
 
     const { error, result } = await findLinksFromTwitter(
-        process.env.WATCH_TWITTER_ID, process.env.WATCH_CHANNEL_ID, cfgLastTweet
+        process.env.WATCH_TWITTER_ID, process.env.WATCH_YT_CHANNEL_ID, cfgLastTweet
     )
     console.debug("[findExtraStreams]", "findLinksFromTwitter finished")
 
