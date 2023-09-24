@@ -11,7 +11,7 @@ export function VideoBox(props) {
         <div className={styles.vstack}>
             {props.caption?
                 <p className={`${styles.videoBoxCaption}`}>
-                    {props.caption} {" "}
+                    {props.caption}
                     {(props.showCountdown && props.info.startTime)? 
                         <span className={styles.countdown}><TextCountdown to={props.info.startTime} formatStrings={dict.Countdowns.VideoBox} /></span>
                         : null

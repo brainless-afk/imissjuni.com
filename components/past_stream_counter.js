@@ -15,7 +15,7 @@ async function fetchPastStream(url) {
     }
 }
 
-export function PastStreamCounter(props) {
+export function PastStreamCounter() {
     const { data } = useSWR("/api/v2/past_stream", fetchPastStream, {
         revalidateOnFocus: false,
         revalidateOnMount: true,

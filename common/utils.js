@@ -1,5 +1,4 @@
 import fetch from "node-fetch";
-import { AbortController } from "node-abort-controller";
 
 // 5s for server, 30s for client
 function _defaultTimeout() {
