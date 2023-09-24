@@ -50,7 +50,7 @@ function scrambledImageSet(state) {
     }
     return array;
   };
-  if (state.isError) {
+  if (!state.status || state.isError) {
     return shuffle([...ERROR_IMAGE_SET]);
   }
   switch (state.status) {
@@ -145,9 +145,9 @@ export async function getServerSideProps({ req, res, query }) {
       await coordinator.updateCache([result]);
       await coordinator.teardown();
     } else {
-      ds.findExtraStreams(coordinator)
-        .then(() => console.log("extra task done"))
-        .then(() => coordinator.teardown());
+      // ds.findExtraStreams(coordinator)
+      //   .then(() => console.log("extra task done"))
+      //   .then(() => coordinator.teardown());
       // Instruct the client to refresh after the extended check is done (hopefully).
       // Depending on latency this might need adjustment
       staleOnArrival = true;

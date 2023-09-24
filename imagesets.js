@@ -1,5 +1,5 @@
 function importAll(requireModule, pathToImage) {
-  return requireModule.keys().map((item, index) => item.replace('./', pathToImage));
+  return requireModule.keys().map((item) => item.replace('./', pathToImage));
 }
 
 // The paths have to be written out because invocation of require.context needs to be statically analyzable

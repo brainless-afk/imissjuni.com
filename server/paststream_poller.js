@@ -50,7 +50,7 @@ function extractPaststreamInfo(fromPageContent) {
 
 export async function pollPaststreamStatus(channelID) {
   if (process.env.USE_DUMMY_DATA === "true") {
-    return pollPaststreamStatusDummy(process.env.WATCH_YT_CHANNEL_ID);
+    return pollPaststreamStatusDummy();
   }
 
   const { error, result: youtubeJSON } = await fetchPaststreamPage(channelID);
@@ -64,7 +64,7 @@ export async function pollPaststreamStatus(channelID) {
   };
 }
 
-async function pollPaststreamStatusDummy(unused) {
+async function pollPaststreamStatusDummy() {
   const dummyData = require("./mocks/paststream_dummy_data.json");
   return {
     error: null,
@@ -122,7 +122,7 @@ async function fetchPastStreamTwitch() {
 
 export async function pollPaststreamStatusTwitch(channelID) {
   if (process.env.USE_DUMMY_DATA === "true") {
-    return pollPaststreamStatusDummy(process.env.WATCH_YT_CHANNEL_ID);
+    return pollPaststreamStatusDummy();
   }
 
   const { error, result: youtubeJSON } = await fetchPastStreamTwitch(channelID);
