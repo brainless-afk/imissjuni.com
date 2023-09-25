@@ -5,7 +5,7 @@
     padding: 1rem;
 }
 
-.site .bigImage, .site .bigButton, .streamInfo, .bareTextContainer {
+.site .bigImage, .site .bigVideo, .site .bigButton, .streamInfo, .bareTextContainer {
     display: block;
     max-width: 480px;
     width: 100%;

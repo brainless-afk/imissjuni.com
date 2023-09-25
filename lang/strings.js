@@ -4,7 +4,7 @@ AllStrings["en"] = {
   CommonMetadata: {
     HeaderSMTitle: "I MISS JUNI",
     FooterText:
-      "Not affiliated with Juniper Actias - {0}",
+      "Not affiliated with Juniper Actias or Lune Genetic Research Facility - {0}",
     FooterSourceLink: "Source",
     FooterStreamerLink: "Juniper Actias",
   },

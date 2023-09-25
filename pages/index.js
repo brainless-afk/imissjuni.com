@@ -310,12 +310,19 @@ function NoStreamLayout(props) {
         />
       </Head>
 
-      <img
-        className={styles.bigImage}
-        src={`${props.absolutePrefix}/${image}`}
-        alt={lang.Main.ImageAlt}
-        onClick={() => setImage(selectNextImage(props.usedImageSet, image))}
-      />
+      {image.endsWith(".webm") ? (
+        <video controls autoPlay className={styles.bigVideo} alt={lang.Main.ImageAlt} onClick={() => setImage(selectNextImage(props.usedImageSet, image))}>
+          <source src={`${props.absolutePrefix}/${image}`} type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+      ) : (
+        <img
+          className={styles.bigImage}
+          src={`${props.absolutePrefix}/${image}`}
+          alt={lang.Main.ImageAlt}
+          onClick={() => setImage(selectNextImage(props.usedImageSet, image))}
+        />
+      )}
       <StreamInfo status={props.status} info={props.streamInfo} />
       <PastStreamCounter />
       <p>
