@@ -8,10 +8,6 @@ import {
   pollPaststreamStatusTwitch,
 } from "../server/paststream_poller";
 import { STREAM_STATUS, STREAM_TYPE } from "../common/enums";
-import {
-  findLinksFromTwitter,
-  getStreamInfos,
-} from "./mocks/twitter_stream_finder";
 
 async function revalidateCachedStream(coordinator, streamInfo, age) {
   if (!streamInfo) {
@@ -113,41 +109,6 @@ export async function getLiveStreamData(mockKey) {
   }
 
   return apiVal;
-}
-
-export async function findExtraStreams(coordinator) {
-  const [cfgLastTweet, cfgLastCheck] = await coordinator.transaction(
-    async () => {
-      return [
-        await coordinator.getConfig("last_tweet_id"),
-        await coordinator.getConfig("last_twitter_check"),
-      ];
-    }
-  );
-  if (cfgLastCheck && Date.now() - parseInt(cfgLastCheck) < 90000) {
-    console.debug("[findExtraStreams]", "throttled");
-    return null;
-  }
-
-  const { error, result } = await findLinksFromTwitter(
-    process.env.WATCH_TWITTER_ID,
-    process.env.WATCH_YT_CHANNEL_ID,
-    cfgLastTweet
-  );
-  console.debug("[findExtraStreams]", "findLinksFromTwitter finished");
-
-  if (!error) {
-    await coordinator.transaction(async () => {
-      await coordinator.updateCache(result.streams);
-      await coordinator.setConfig("last_tweet_id", result.latestTweet);
-      await coordinator.setConfig("last_twitter_check", Date.now().toString());
-    });
-
-    console.debug("[findExtraStreams]", "db update finished");
-    return result.streams;
-  }
-
-  return null;
 }
 
 export async function getDatabase() {

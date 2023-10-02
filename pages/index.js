@@ -145,11 +145,6 @@ export async function getServerSideProps({ req, res, query }) {
       await coordinator.updateCache([result]);
       await coordinator.teardown();
     } else {
-      // ds.findExtraStreams(coordinator)
-      //   .then(() => console.log("extra task done"))
-      //   .then(() => coordinator.teardown());
-      // Instruct the client to refresh after the extended check is done (hopefully).
-      // Depending on latency this might need adjustment
       staleOnArrival = true;
     }
 
