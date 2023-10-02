@@ -139,7 +139,6 @@ async function main() {
   }
 
   let nextUrl = makeAPIURL();
-  console.log("________________________________")
 
   while (nextUrl) {
     const resp = await fetch(nextUrl);

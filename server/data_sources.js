@@ -8,6 +8,7 @@ import {
   pollPaststreamStatusTwitch,
 } from "../server/paststream_poller";
 import { STREAM_STATUS, STREAM_TYPE } from "../common/enums";
+import { getStreamInfos } from "../server/stream_finder";
 
 async function revalidateCachedStream(coordinator, streamInfo, age) {
   if (!streamInfo) {
