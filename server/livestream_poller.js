@@ -243,7 +243,6 @@ export async function fetchTwitchLivestreamPage(channelID) {
       "Get Twitch live status"
     );
     if (res.status !== 200) {
-      console.log(await res.text());
       return { error: `HTTP status: ${res.status}`, result: null };
     }
 

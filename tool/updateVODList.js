@@ -13,7 +13,10 @@ class PostgresDatabase {
   async _connect() {
     for (let i = 0; i < 3; ++i) {
       try {
-        this.connection = new pgClient({ connectionTimeoutMillis: 5000 });
+        this.connection = new pgClient({
+          connectionString: process.env.POSTGRES_URL + "?sslmode=require",
+          connectionTimeoutMillis: 5000,
+        });
         await this.connection.connect();
         return this;
       } catch (e) {

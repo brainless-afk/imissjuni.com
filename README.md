@@ -7,7 +7,7 @@ or the actual environment of your server process:
   Also sets the channel link at the bottom of the page.
 - `WATCH_YT_CHANNEL_ID=XXXX` sets the youtube channel to check for livestream status. Copy
   only the part after /channel/ in the URL (i.e. the `UC...` part)
-- `USE_DUMMY_DATA=true` returns fake stream status instead of scraping YT. See 
+- `USE_DUMMY_DATA=true` returns fake stream status instead of scraping YT. See
   getServerSideProps in pages/index.js.
 - `PUBLIC_HOST=XXXX` sets the external hostname of the site (e.g. "https://imissfauna.com").
   This is used to make absolute URLs for the embed. Do not leave a trailing slash.
@@ -31,6 +31,8 @@ If using Postgres:
 - `PGPORT=xxx`
 - `PGHOST=xxx`
 - `PGDATABASE=imfdev`
+- `POSTGRES_URL= postgres connectiontring` overwrites ssl object in pg client and prevent ssl required error
+  that appears with default login method
 
 (Any PG environment variables supported by libpq can also be set.
 See https://www.postgresql.org/docs/9.3/libpq-envars.html)
