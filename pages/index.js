@@ -300,7 +300,7 @@ function NoStreamLayout(props) {
           property="og:description"
         />
         <meta
-          content={`${props.absolutePrefix}/${image}`}
+          content={`${props.absolutePrefix}/JuniBawl.png`}
           property="og:image"
         />
       </Head>
@@ -343,7 +343,7 @@ function ErrorLayout(props) {
       <Head>
         <title>{lang.Main.PageTitle}</title>
         <meta
-          content={`${props.absolutePrefix}/${image}`}
+          content={`${props.absolutePrefix}/JuniBawl.png`}
           property="og:image"
         />
       </Head>
