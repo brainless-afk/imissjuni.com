@@ -17,6 +17,8 @@ import {
 } from "../lang/dict_manager";
 import styles from "../styles/Home.module.css";
 
+const persistentMetaImage = "";
+
 function selectRandomImage(fromSet) {
   return fromSet[(Math.random() * fromSet.length) | 0];
 }
@@ -268,7 +270,7 @@ function LiveOrStartingSoonLayout(props) {
           property="og:description"
         />
         <meta
-          content={`${props.absolutePrefix}/JuniBawl.png`}
+          content={`${props.absolutePrefix}/imagesets/have-stream/mothHappy.png`}
           property="og:image"
         />
       </Head>
@@ -300,7 +302,7 @@ function NoStreamLayout(props) {
           property="og:description"
         />
         <meta
-          content={`${props.absolutePrefix}/JuniBawl.png`}
+          content={`${props.absolutePrefix}/imagesets/no-stream/JuniBawl.png`}
           property="og:image"
         />
       </Head>
@@ -343,7 +345,7 @@ function ErrorLayout(props) {
       <Head>
         <title>{lang.Main.PageTitle}</title>
         <meta
-          content={`${props.absolutePrefix}/JuniBawl.png`}
+          content={`${props.absolutePrefix}/imagesets/errored/mothLoading.png`}
           property="og:image"
         />
       </Head>
