@@ -268,7 +268,7 @@ function LiveOrStartingSoonLayout(props) {
           property="og:description"
         />
         <meta
-          content={`${props.absolutePrefix}/${image}`}
+          content={`${props.absolutePrefix}/JuniBawl.png`}
           property="og:image"
         />
       </Head>
