@@ -121,7 +121,7 @@ function makeAPIURL(pageToken) {
     pageSpecifier = `pageToken=${pageToken}&`;
   }
 
-  return `https://youtube.googleapis.com/youtube/v3/search?${pageSpecifier}part=snippet&channelId=${channelID}&maxResults=500&order=date&type=video&key=${apiKey}`;
+  return `https://youtube.googleapis.com/youtube/v3/search?${pageSpecifier}part=snippet&channelId=${channelID}&maxResults=100&order=date&type=video&key=${apiKey}`;
 }
 
 function collect(item) {
