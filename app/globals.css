@@ -1,0 +1,57 @@
+:root {
+  --background: #abc483;
+  --foreground: #000000;
+}
+
+html,
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: #494949;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #78806b;
+}
+
+footer {
+  margin-top: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+footer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+small {
+  font-size: 80%;
+}
+
+.fillSpaceContainer {
+  height: 100%;
+}

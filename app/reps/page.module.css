@@ -1,0 +1,17 @@
+.repsRoot {
+  max-width: 800px;
+  text-align: center;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.watchThisText {
+  padding: 0 0.8rem;
+  text-align: left;
+  display: block;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto -1rem auto;
+  color: #494949;
+  font-weight: bold;
+}

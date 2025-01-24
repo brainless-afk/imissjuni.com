@@ -1,0 +1,76 @@
+.streamInfo {
+  background: linear-gradient(rgb(164, 183, 133),#ccddb0);
+  border: 1px solid #ebebeb;
+  border-radius: 6px;
+  padding: 0.8rem;
+  margin: 2rem auto;
+  text-align: left;
+  box-shadow: 4px 4px 0px 1px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: block;
+  max-width: 500px;
+  width: 100%;
+}
+
+.streamInfo a:hover {
+  text-decoration: underline;
+}
+
+.streamInfo p {
+  margin: 0;
+}
+
+.bigImage {
+  display: block;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.streamInfoError {
+  background: black;
+  border-color: black;
+  color: rgb(235, 235, 235);
+}
+
+.streamInfoError a {
+  color: white;
+}
+
+.rerollButton {
+  display: block;
+  background: linear-gradient(rgb(164, 183, 133),#ccddb0);
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  padding: 0.8rem;
+  margin: 2rem auto;
+  text-align: center;
+  box-shadow: 4px 4px 0px 1px rgba(0, 0, 0, 0.2);
+
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 100%;
+  max-width: 500px;
+  width: 100%;
+}
+
+.rerollButton:active {
+  transform: translateY(2px);
+  box-shadow: 4px 2px 0px 1px rgba(0, 0, 0, 0.07);
+}
+
+.pastStreamInfo {
+  background: linear-gradient(rgb(164, 183, 133),#ccddb0);
+  border-color: #ebebeb;
+  text-align: center;
+}
+
+.pastStreamInfo a {
+  text-decoration: none;
+}
+
+.isReloading {
+  opacity: 0.5;
+}

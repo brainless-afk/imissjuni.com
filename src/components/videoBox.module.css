@@ -1,0 +1,48 @@
+.videoBox img {
+  margin-left: 0.8rem;
+  border-radius: 3px;
+  border: 1px solid #ebebeb;
+}
+
+.videoBox a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* This makes the entire box a tap target for the link inside. */
+.videoBox a::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.videoBox img {
+  background: rgb(243, 78, 78);
+  border-color: #c70707;
+}
+
+.videoBox {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.videoBoxCaption {
+  font-size: 80%;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+}
+
+.vstack {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+}
+
+.countdown {
+  text-transform: none;
+}

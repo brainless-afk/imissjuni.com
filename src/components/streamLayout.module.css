@@ -1,0 +1,70 @@
+.streamInfo {
+  background: linear-gradient(rgb(164, 183, 133), #ccddb0);
+  border: 1px solid #ebebeb;
+  border-radius: 6px;
+  padding: 0.8rem;
+  margin: 2rem auto;
+  text-align: left;
+  box-shadow: 4px 4px 0px 1px rgba(0, 0, 0, 0.07);
+  position: relative;
+  display: block;
+  max-width: 500px;
+  width: 100%;
+}
+
+.streamInfo a:hover {
+  text-decoration: underline;
+}
+
+.streamInfo p {
+  margin: 0;
+}
+
+.streamInfoError {
+  background: black;
+  border-color: black;
+  color: rgb(235, 235, 235);
+}
+
+.streamInfoError a {
+  color: white;
+}
+
+.bigImage {
+  display: block;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.vstack {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+}
+
+.videoBoxCaption {
+  color: rgb(255, 240, 240);
+}
+
+.streamInfoLive {
+  background: rgb(243, 78, 78);
+  border-color: #c70707;
+}
+
+.streamInfoLive .videoBoxCaption {
+  color: rgb(255, 240, 240);
+}
+
+.streamInfoError {
+  background: black;
+  border-color: black;
+  color: rgb(235, 235, 235);
+}
+
+.streamInfoLive a,
+.streamInfoLive p,
+.streamInfoError a {
+  color: white;
+}
