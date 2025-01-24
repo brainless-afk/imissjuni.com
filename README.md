@@ -51,6 +51,7 @@ WATCH_YT_CHANNEL_ID=UCbidRNE8aZswWxTTEYuVKgA
 
 # Set app access token used to access twitch API.
 # See https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/#client-credentials-grant-flow
+# Note: expires after about 50 days so you need to generate a new token
 TWITCH_ACCESS_TOKEN=abc123
 
 # Set app’s registered client ID.
@@ -62,7 +63,7 @@ TWITCH_CLIENT_ID=abc123
 YOUTUBE_API_KEY=Abc123
 
 # Set token to secure (cron job) api route to update vods in database
-CRON_SECRET="bec16e26-193c-4af4-83e0-e8a1a8b7da39"
+CRON_SECRET="abc123"
 
 # If using Postgres:
 DATABASE_TYPE=postgres
