@@ -54,4 +54,20 @@ small {
 
 .fillSpaceContainer {
   height: 100%;
+  min-height: 75px;
+}
+
+/* Flexbox for smaller screens */
+@media (max-width: 780px) {
+  html,
+  body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  footer {
+    margin-top: auto; /* Pushes footer to the bottom */
+    position: relative;
+  }
 }
