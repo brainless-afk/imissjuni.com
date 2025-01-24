@@ -1,59 +1,82 @@
-## Config
+As an excercise I refactored thius repo using typescript, upgrading Nextjs and using app router.  
+Also added support for twitch.tv livestream status.
 
-The site is configured using environment variables. Set the following in your .env file,
-or the actual environment of your server process:
+## I MISS JUNI
 
-- `WATCH_TWITCH_CHANNEL_HANDLE=@xxxx` sets the twitch channel to check for livestream status.  
-  Also sets the channel link at the bottom of the page.
-- `WATCH_YT_CHANNEL_ID=XXXX` sets the youtube channel to check for livestream status. Copy
-  only the part after /channel/ in the URL (i.e. the `UC...` part)
-- `USE_DUMMY_DATA=true` returns fake stream status instead of scraping YT. See
-  getServerSideProps in pages/index.js.
-- `PUBLIC_HOST=XXXX` sets the external hostname of the site (e.g. "https://imissfauna.com").
-  This is used to make absolute URLs for the embed. Do not leave a trailing slash.
-- `YOUTUBE_API_KEY=XXXX` for refreshing members/premiere info. Can be created for free at
-  https://console.cloud.google.com/apis/api/youtube.googleapis.com/credentials (Google account required)
-- `WATCH_YT_CHANNEL_HANDLE=@xxxx` sets the channel link at the bottom of the page. If unset,
-  uses the old /channel/... URL format.
+I miss \<streamer\> web app.
 
-One of the following variable sets are needed to configure the database:
-
-If using SQLite:
-
-- `DATABASE_TYPE=sqlite3`
-- `SQLITE_DB_PATH=./data.db`
-
-If using Postgres:
-
-- `DATABASE_TYPE=postgres`
-- `PGUSER=xxx`
-- `PGPASSWORD=xxx`
-- `PGPORT=xxx`
-- `PGHOST=xxx`
-- `PGDATABASE=imfdev`
-- `POSTGRES_URL= postgres connectiontring` overwrites ssl object in pg client and prevent ssl required error
-  that appears with default login method
-
-(Any PG environment variables supported by libpq can also be set.
-See https://www.postgresql.org/docs/9.3/libpq-envars.html)
-
-You will probably want a connection pooler like pgbouncer if you're deploying on a serverless platform
-like vercel.
-
-## Initializing the database
-
-Run either init_postgres.sql or init_sqlite3.sql on your database to create the necessary tables.
-
-## How to add images
+### How to add images
 
 1. Put a .png or .jpg file in public/imagesets/[name]
 
-## How to add languages
+### Getting Started
 
-1. Open `next.config.js` and add your language's locale code to the `locales` array
-   (e.g. `locales: ["en"],` -> `locales: ["en", "fr"],`). Locale codes can be either just
-   the language (`en`) or include a region (`en-US`).
-2. Open `lang/strings.js` and copy/paste the entire English strings block. Replace the
-   locale code in `AllStrings["en"]` with the code you added in step 1.
-3. Translate all the newly copypasted strings.
-4. Make a pull request.
+#### Prerequisites
+
+- Node.js
+- npm or yarn
+
+#### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/imissjuni.com.git
+cd imissjuni.com
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Set up environment variables:
+
+The web app is configured using environment variables,
+Set the environmen variables in your .env file, or the actual environment of your server process:
+
+```yaml
+# Set the host url of the app
+NEXT_PUBLIC_HOST=http://localhost:3000/
+
+# Set the twitch channel to check for livestream status.
+WATCH_TWITCH_USER_ID=598403800
+
+# Set the youtube channel to get reps videos. Copy only the part after /channel/ in the URL.
+# Only checks for livestream status if twitch handle is not set.
+WATCH_YT_CHANNEL_ID=UCbidRNE8aZswWxTTEYuVKgA
+
+# Set app access token used to access twitch API.
+# See https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/#client-credentials-grant-flow
+TWITCH_ACCESS_TOKEN=abc123
+
+# Set app’s registered client ID.
+# See https://dev.twitch.tv/docs/authentication/register-app/
+TWITCH_CLIENT_ID=abc123
+
+# Used for refreshing members/premiere info and updating vod list. Can be created for free at
+# https://console.cloud.google.com/apis/api/youtube.googleapis.com/credentials (Google account required)
+YOUTUBE_API_KEY=Abc123
+
+# Set token to secure (cron job) api route to update vods in database
+CRON_SECRET="bec16e26-193c-4af4-83e0-e8a1a8b7da39"
+
+# If using Postgres:
+DATABASE_TYPE=postgres
+POSTGRES_URL=postgres://default:abc123
+
+# If using SQLite (for local development):
+DATABASE_TYPE=sqlite3
+SQLITE_DB_PATH=./data.db
+
+# Optional: Set this to use holodex instead of youtube to check for livestream status.
+HOLODEX_API_KEY=""
+
+```
+
+4. Initializing the database
+
+Run either init_postgres.sql or init_sqlite3.sql on your database to create the necessary tables.

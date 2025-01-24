@@ -1,8 +1,3 @@
-CREATE TABLE IF NOT EXISTS config (
-    name TEXT PRIMARY KEY,
-    val TEXT
-);
-
 CREATE TABLE IF NOT EXISTS cached_stream_info (
     video_link TEXT PRIMARY KEY,
     status INT,
