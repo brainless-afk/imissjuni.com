@@ -1,19 +1,14 @@
-import { ERROR_IMAGE_SET } from "@/imagesets";
 import { STREAM_STATUS } from "@/src/common/enums";
-import {
-  imageFromStreamStatus,
-  scrambledImageSet,
-  selectRandomImage,
-} from "@/src/common/imageUtils";
 import StreamLayout from "@/src/components/streamLayout";
 import AllStrings from "@/src/lang/strings";
 import { ILiveStreamInfo, LiveStreamInfo } from "@/src/models/LiveStreamInfo";
 import { PastStreamInfo } from "@/src/models/PastStreamInfo";
+import { StreamInfo } from "@/src/models/StreamInfo";
 import { getPastStream } from "@/src/services/data_sources";
 import { Metadata } from "next/types";
 import { cache } from "react";
 import styles from "./page.module.css"; // Adjust the path as necessary
-import { StreamInfo } from "@/src/models/StreamInfo";
+import { getImageSetFromStatus } from "@/src/common/imageUtils";
 
 const absolutePrefix = process.env.PUBLIC_HOST || "./";
 
@@ -31,9 +26,8 @@ async function fetchLivestreamInfo(): Promise<ILiveStreamInfo> {
   //     console.warn("livestream poll returned error:", error);
   //     await coordinator.teardown();
   //     return new LiveStreamInfo({
-  //       initialImage: selectRandomImage(ERROR_IMAGE_SET),
   //       isError: true,
-  //       usedImageSet: scrambledImageSet(undefined),
+  //       usedImageSet: getImageSetFromStatus(undefined),
   //     });
   //   }
 
@@ -50,19 +44,17 @@ async function fetchLivestreamInfo(): Promise<ILiveStreamInfo> {
   if (error || !result) {
     console.warn("livestream poll returned error:", error);
     return new LiveStreamInfo({
-      initialImage: selectRandomImage(ERROR_IMAGE_SET),
       isError: true,
-      usedImageSet: scrambledImageSet(undefined),
+      usedImageSet: getImageSetFromStatus(undefined),
     });
   }
   const useStreamInfo = result;
 
   return new LiveStreamInfo({
-    initialImage: imageFromStreamStatus(useStreamInfo.live),
     isError: false,
     status: useStreamInfo.live,
     streamInfo: useStreamInfo,
-    usedImageSet: scrambledImageSet(useStreamInfo.live),
+    usedImageSet: getImageSetFromStatus(useStreamInfo.live),
   });
 }
 
@@ -143,7 +135,6 @@ export default async function Home() {
       <StreamLayout
         absolutePrefix={absolutePrefix}
         getPastStreamInfo={fetchPastStream}
-        initialImage={liveStreamInfo.initialImage}
         isError={liveStreamInfo.isError}
         refreshStatus={refreshLiveStreamStatusInfo}
         status={liveStreamInfo.status || STREAM_STATUS.OFFLINE}

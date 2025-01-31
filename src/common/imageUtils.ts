@@ -17,36 +17,28 @@ export function selectNextImage(fromSet: string[], currentImage: string) {
   return fromSet[nextIndex % fromSet.length];
 }
 
-export function imageFromStreamStatus(status: number) {
-  if (status != STREAM_STATUS.LIVE && status != STREAM_STATUS.STARTING_SOON) {
-    return selectRandomImage(NO_STREAM_IMAGE_SET);
-  } else {
-    return selectRandomImage(HAVE_STREAM_IMAGE_SET);
-  }
-}
-
 /**
  * Returns an imageset with its positions in the array scrambled.
  */
-export function scrambledImageSet(status: number | undefined) {
-  const shuffle = function (array: string[]) {
-    const shuffled = [...array];
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      // Swap elements at indices i and j
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-  };
+export function shuffleImageSet(array: string[]) {
+  const shuffled = [...array];
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    // Swap elements at indices i and j
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
 
+export function getImageSetFromStatus(status: number | undefined) {
   switch (status) {
     case STREAM_STATUS.LIVE:
     case STREAM_STATUS.STARTING_SOON:
-      return shuffle([...HAVE_STREAM_IMAGE_SET]);
+      return HAVE_STREAM_IMAGE_SET;
     case STREAM_STATUS.OFFLINE:
     case STREAM_STATUS.INDETERMINATE:
-      return shuffle([...NO_STREAM_IMAGE_SET]);
+      return NO_STREAM_IMAGE_SET;
     default:
-      return shuffle([...ERROR_IMAGE_SET]);
+      return ERROR_IMAGE_SET;
   }
 }
