@@ -63,7 +63,7 @@ const AllStrings = {
     PastStream: {
       immediate: "",
       forFuture: "",
-      forPast: `%@ without Fauna`,
+      forPast: `%@ without Juni`,
       days: (days: number) => (days > 1 ? `${days} days` : `${days} day`),
       hours: (hours: number) =>
         hours > 1 ? `${hours} hours` : `${hours} hour`,
