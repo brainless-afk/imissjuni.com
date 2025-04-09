@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AllStrings from "@/src/lang/strings";
 import CommonFooter from "@/src/common/footer";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Script src="https://unpkg.com/react-scan/dist/auto.global.js"></Script>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
         <div className="fillSpaceContainer"></div>
