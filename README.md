@@ -1,4 +1,4 @@
-As an excercise I refactored thius repo using typescript, upgrading Nextjs and using app router.  
+As an excercise I refactored this repo using typescript, upgrading Nextjs and using app router.  
 Also added support for twitch.tv livestream status.
 
 ## I MISS JUNI
