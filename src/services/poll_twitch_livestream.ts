@@ -83,7 +83,7 @@ export function extractInfoFromTwitchApiResponse(
       result: new StreamInfo({
         live: STREAM_STATUS.LIVE,
         title: livestream.title,
-        videoLink: `https://www.twitch.tv/${channelID}`,
+        videoLink: `https://www.twitch.tv/${process.env.WATCH_TWITCH_CHANNEL_NAME}`,
         streamStartTime: livestream.started_at,
         thumbnail: livestream.thumbnail_url
           .replace("{width}", "320")

@@ -45,6 +45,10 @@ NEXT_PUBLIC_HOST=http://localhost:3000/
 # Set the twitch channel to check for livestream status.
 WATCH_TWITCH_USER_ID=598403800
 
+# Twitch channel name used for link (the part after https://www.twitch.tv/)
+# Links with user id stopped working?
+WATCH_TWITCH_CHANNEL_NAME=juniperactias
+
 # Set the youtube channel to get reps videos. Copy only the part after /channel/ in the URL.
 # Only checks for livestream status if twitch handle is not set.
 WATCH_YT_CHANNEL_ID=UCbidRNE8aZswWxTTEYuVKgA
